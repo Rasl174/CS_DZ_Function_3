@@ -10,44 +10,34 @@ namespace CS_DZ_Function_3
     {
         static void Main(string[] args)
         {
-            bool canExit = false;
+            int transformNumber = 0;
 
-            while (!canExit)
-            {
-                Console.WriteLine("Для конвертации введите 1 ");
-                Console.WriteLine("Для выхода введите 2 или exit ");
-                string userInput = Console.ReadLine();
+            transformNumber = TransformNumber(transformNumber);
 
-                switch (userInput)
-                {
-                    case "1":
-                        Console.WriteLine("Введите число которое нужно сконвертировать: ");
-                        Convert(out int convertedSymbol);
-                        break;
-                    case "2":
-                    case "exit":
-                        canExit = true;
-                        break;
-                }
-                
-            }
+            Console.WriteLine("Вернулось число: " + transformNumber);
         }
 
-        static void Convert(out int number)
+        static int TransformNumber(int number)
         {
-            string userInput = Console.ReadLine();
+            bool isCanTransformed = true;
+            Console.WriteLine("Введите строку для преобразования: ");
 
-            bool canConvert = int.TryParse(userInput, out number);
+            while (isCanTransformed)
+            {
+                string userInput = Console.ReadLine();
+                bool canTransform = int.TryParse(userInput, out number);
 
-            if (canConvert)
-            {
-                Console.WriteLine("Число: " + userInput + " удалось сконвертировать в: " + number);
+                if (canTransform)
+                {
+                    Console.WriteLine("Строку: " + userInput + " удалось преобразовать.");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка преобразования.\nВведите другую строку: ");
+                }
             }
-                
-            else
-            {
-                Console.WriteLine("Ошибка конвертации.");
-            }
+            return number;
         }
     }
 }
