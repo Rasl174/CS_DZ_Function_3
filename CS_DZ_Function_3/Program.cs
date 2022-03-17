@@ -10,14 +10,14 @@ namespace CS_DZ_Function_3
     {
         static void Main(string[] args)
         {
-            int transformNumber = 0;
+            int readNumber = 0;
 
-            transformNumber = TransformNumber(transformNumber);
+            readNumber = GetNumber(readNumber);
 
-            Console.WriteLine("Вернулось число: " + transformNumber);
+            Console.WriteLine("Вернулось число: " + readNumber);
         }
 
-        static int TransformNumber(int number)
+        static int GetNumber(int number)
         {
             bool isCanTransformed = true;
             Console.WriteLine("Введите строку для преобразования: ");
@@ -30,7 +30,7 @@ namespace CS_DZ_Function_3
                 if (canTransform)
                 {
                     Console.WriteLine("Строку: " + userInput + " удалось преобразовать.");
-                    break;
+                    isCanTransformed = false;
                 }
                 else
                 {
